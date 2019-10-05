@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -94,18 +94,17 @@ namespace Gyak3
 
             #endregion
 
-            #region
+            #region nemnegativ szamok kivalogatasa
             // Gyak 2. Az előző feladat tömbjéből másolja ki egy másik, megfelelő elemszámú tömbbe a nemnegatív számokat.
 
-            Console.WriteLine("Az eredeti tömb:");
-            TombKiiratas(tomb);
+            //Console.WriteLine("Az eredeti tömb:");
+            //TombKiiratas(tomb);
 
             //tomb = NemnegativKivalogat(tomb);
-            int db = NemnegativKivalogatHelyben(ref tomb);
+            //int db = NemnegativKivalogatHelyben(ref tomb);
 
-            Console.WriteLine("A nemnegatív számok:");
-            TombKiiratas(tomb, db);
-
+            //Console.WriteLine("A nemnegatív számok:");
+            //TombKiiratas(tomb, db);
 
             #endregion
 
@@ -114,7 +113,39 @@ namespace Gyak3
             // amíg tényleg hónapnevet nem ír be. (Ellenőrizze: a hónapneveket tömbben tárolja, ha a
             // felhasználó bemenete nem szerepel ebben, akkor kérje újra.)
 
+            HonapBeker();
+
             #endregion
+        }
+
+        private static void HonapBeker()
+        {
+            string[] honapok = {
+                "január", "február", "március",
+                "április", "május", "június",
+                "július", "augusztus", "szeptember",
+                "október", "november", "december"
+            };
+
+            Console.WriteLine("Adj meg egy hónapnevet!");
+
+            string honap = Console.ReadLine();
+
+            string uzenet = "";
+            bool van = false;
+
+            for (int i = 0; i < honapok.Length; i++)
+            {
+                if (honap.Equals(honapok[i]))
+                {
+                    van = true;
+                }
+            }
+
+
+            uzenet = van ? honap : "egyik sem";
+
+            Console.WriteLine("Ennek a hónapnak a nevét adtad meg: " + uzenet + ".");
         }
 
         private static int NemnegativKivalogatHelyben(ref int[] tomb)
