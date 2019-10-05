@@ -108,14 +108,63 @@ namespace Gyak3
 
             #endregion
 
-            #region
+            #region honap bekerese
             // Gyak 3. Kérjen be a felhasználótól hónapnevet! Egészen addig ne fogadja el a bemenetet,
             // amíg tényleg hónapnevet nem ír be. (Ellenőrizze: a hónapneveket tömbben tárolja, ha a
             // felhasználó bemenete nem szerepel ebben, akkor kérje újra.)
 
-            HonapBeker();
+            //HonapBeker();
 
             #endregion
+
+            #region gyakorló feladatok stringműveletekkel
+
+            // 1. Írjon programot amely egy stringből eltünteti a szóközöket! Alkalmazza a stringműveleteket!
+            //SzokozokTorleseStringbol();
+
+            // 2. Írjon programot, amely egy szövegben megszámolja a magánhangzókat! Alkalmazza a stringműveleteket!
+            MghSzamlalas();
+
+            // 3. Készítsen programot, amely egy adott karaktersorozatot(pl. „Amelyik kutya ugat, az a kutya nem harap”)
+            // minden adott karaktersorozatát(pl. „kutya”) egy adott karaktersorozatra(pl. „macska”) cseréli!
+
+
+
+            #endregion
+        }
+
+        private static void MghSzamlalas()
+        {
+            int mgh = 0;
+            string maganhangzok = "aáeéiíoóöőuúüű";
+
+            Console.WriteLine("Írj be egy sornyi szöveget, amelyben szeretnéd megszámlálni a magánhangzókat!");
+            string szoveg = Console.ReadLine();
+
+            foreach (char c in szoveg)
+            {
+                foreach (char m in maganhangzok)
+                {
+                    if (c.ToString().ToLower().Equals(m.ToString())) {
+                        mgh++;
+                    }
+                }
+            }
+
+            Console.WriteLine("A magánhangzók száma az általad megadott szövegben: " + mgh);
+        }
+
+        private static void SzokozokTorleseStringbol()
+        {
+            Console.WriteLine("Írj be egy sornyi szöveget, amiből el szeretnéd tüntetni a szóközöket!");
+
+            //string szoveg = "Jobb egy lúdnyak tíz tyúknyaknál.";
+            string szoveg = Console.ReadLine();
+
+            szoveg = szoveg.Replace(" ", string.Empty);
+
+            Console.WriteLine("A szöveg a szóközök eltüntetését követően:");
+            Console.WriteLine(szoveg);
         }
 
         private static void HonapBeker()
