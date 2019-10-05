@@ -20,10 +20,10 @@ namespace Gyak3
             // A következő feladatokban az A tömb adott számú egész számot tartalmaz.
             // A tömb elemei 0 és 100 között véletlen számok. A tömb feltöltése érdekében
             // készítsen önálló metódust!
-            // •Az A tömb mérete: A.Length segítségével határozható meg
-            // •Készítsen metódust, mely kilistázza tömb elemeit!
-            // •Minden egyes feladatot külön metódussal valósítson meg!
-            // (•Érdemes egy olyan metódust is készíteni, amely egy szám öttel való oszthatóságát vizsgálja.)
+            // • Az A tömb mérete: A.Length segítségével határozható meg
+            // • Készítsen metódust, mely kilistázza tömb elemeit!
+            // • Minden egyes feladatot külön metódussal valósítson meg!
+            // (• Érdemes egy olyan metódust is készíteni, amely egy szám öttel való oszthatóságát vizsgálja.)
             #endregion
 
             #region orai feladatok elokeszitese
@@ -127,25 +127,30 @@ namespace Gyak3
                 "október", "november", "december"
             };
 
-            Console.WriteLine("Adj meg egy hónapnevet!");
-
-            string honap = Console.ReadLine();
-
-            string uzenet = "";
             bool van = false;
 
-            for (int i = 0; i < honapok.Length; i++)
+            Console.WriteLine("Adj meg egy hónapnevet!");
+            string honap = Console.ReadLine();
+            while (!van)
             {
-                if (honap.Equals(honapok[i]))
+                for (int i = 0; i < honapok.Length; i++)
                 {
-                    van = true;
+                    if (honap.Equals(honapok[i]))
+                    {
+                        van = true;
+                    }
+                }
+
+                if (!van)
+                {
+                    Console.WriteLine("Nem találom a megadott hónapnevet.\n" +
+                        "Adj meg egy másikat, vagy próbálkozz újra ugyanezzel. Csak kisbetűket használj!");
+
+                    honap = Console.ReadLine();
                 }
             }
 
-
-            uzenet = van ? honap : "egyik sem";
-
-            Console.WriteLine("Ennek a hónapnak a nevét adtad meg: " + uzenet + ".");
+            Console.WriteLine("Az általad megadott hónap neve: " + honap);
         }
 
         private static int NemnegativKivalogatHelyben(ref int[] tomb)
