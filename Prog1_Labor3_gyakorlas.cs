@@ -123,14 +123,32 @@ namespace Gyak3
             //SzokozokTorleseStringbol();
 
             // 2. Írjon programot, amely egy szövegben megszámolja a magánhangzókat! Alkalmazza a stringműveleteket!
-            MghSzamlalas();
+            //MghSzamlalas();
 
             // 3. Készítsen programot, amely egy adott karaktersorozatot(pl. „Amelyik kutya ugat, az a kutya nem harap”)
             // minden adott karaktersorozatát(pl. „kutya”) egy adott karaktersorozatra(pl. „macska”) cseréli!
 
-
+            Csere();
 
             #endregion
+        }
+
+        private static void Csere()
+        {
+            Console.WriteLine("Írj be egy sornyi szöveget, amelyben szeretnél lecserélni egy részsorozatot!");
+            string szoveg = Console.ReadLine();
+
+            Console.WriteLine("Milyen karaktersorozatot szeretnél lecserélni?");
+            string cserelendo = Console.ReadLine();
+
+            Console.WriteLine("Mire cseréled?");
+            string csere = Console.ReadLine();
+
+            Console.WriteLine("A szöveg a csere előtt: " + szoveg);
+
+            szoveg = szoveg.Replace(cserelendo, csere);
+
+            Console.WriteLine("A szöveg a csere után: " + szoveg);
         }
 
         private static void MghSzamlalas()
